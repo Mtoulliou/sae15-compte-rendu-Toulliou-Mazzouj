@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<park>
-	<DateTime>2023-01-17T09:08:53</DateTime>
-	<Name>GAMB</Name>
-	<Status>Open</Status>
-	<Free>0382</Free>
-	<Total>0434</Total>
-</park>

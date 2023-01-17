@@ -1,8 +1,0 @@
-<?xml version='1.0' encoding='UTF-8'?> 
-<park>
-	<DateTime>2023-01-17T09:05:54</DateTime>
-	<Name>ARCE</Name>
-	<Status>Open</Status>
-	<Free>0095</Free>
-	<Total>0230</Total>
-</park>
