@@ -77,6 +77,8 @@ def graph(ref,liste1,liste2,nom1,nom2):
     plt.plot(ref,liste2)
     plt.xlabel(nom1)
     plt.ylabel(nom2)
+    plt.savefig("grph.png")
+
 
 #Vérification des fonctions.
 assert(moyenne([1,2,3,4,5,6]) == 3.5)
@@ -85,3 +87,20 @@ assert(ecart_type([1,2,3,4,5,6]) == 1.71)
 assert(covariance([1,2,3,4,5,6],[7,8,9,10,11,12]) == 2.92)
 assert(corelation([1,2,3,4,5,6],[7,8,9,10,11,12]) == 1)
 assert(pourcentage(2,4) == 50)
+
+"""
+T=[]
+L1=[]
+L2=[]
+f1=open("FR_MTP_ANTI.Free.txt","r")
+f2=open("FR_MTP_COME.Free.txt","r")
+for x in range(1,68) :
+    S1=int(str(f1.readlines(x))[2:-4])
+    L1.append(S1)
+    S2=int(str(f2.readlines(x))[2:-4])
+    L2.append(S2)
+f1.close()
+f2.close()
+print(L1,L2)
+graph(T,L1,L2,"Temps","Places occupées")
+"""

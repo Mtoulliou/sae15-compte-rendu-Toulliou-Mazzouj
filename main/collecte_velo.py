@@ -1,3 +1,10 @@
+# !/usr/bin/python3
+# -*- coding: utf-8 -*-
+# Module calcul
+# Copyright 2023 Mattéo Toulliou, Mazzouj Kenzo
+# Version 1.0
+# 19.01.2023
+
 import time
 import requests
 import os
