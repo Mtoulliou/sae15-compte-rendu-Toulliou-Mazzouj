@@ -89,18 +89,11 @@ assert(corelation([1,2,3,4,5,6],[7,8,9,10,11,12]) == 1)
 assert(pourcentage(2,4) == 50)
 
 """
-T=[]
-L1=[]
-L2=[]
-f1=open("FR_MTP_ANTI.Free.txt","r")
-f2=open("FR_MTP_COME.Free.txt","r")
-for x in range(1,68) :
-    S1=int(str(f1.readlines(x))[2:-4])
-    L1.append(S1)
-    S2=int(str(f2.readlines(x))[2:-4])
-    L2.append(S2)
-f1.close()
-f2.close()
-print(L1,L2)
+'''
+Programme permettant de comparer deux liste dans un graphique courbes.
+'''
+T=[1,2,3,4,5,6,7,8,9,10]
+L1=[1,2,5,2,6,3,9,1,2,5]
+L2=[0,1,1,7,4,2,5,4,8,3]
 graph(T,L1,L2,"Temps","Places occupées")
 """
