@@ -33,8 +33,8 @@ for parking in parkings :
         f1=open(nom_fichier,"w",encoding='utf8')
         f1.close()
 
-stop = time.time()
-while time.time() != -1 :
+l=0
+while True :
     for parking in parkings :
         fichier_parking()
         fileObject = open("station_status.json","r")
@@ -58,6 +58,9 @@ while time.time() != -1 :
                 f1.writelines(L)
                 f1.close()
         x+=1
-    time.sleep(300)
+    l+=1
+    print('tour : ',l)
+    time.sleep(1)
+ 
 
 print(f'TERMINE')
