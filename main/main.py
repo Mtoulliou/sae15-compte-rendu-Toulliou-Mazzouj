@@ -92,7 +92,7 @@ def places_occupees_totales_24h():
     return Total
 
 
-def graph_pourcentage_moyenne_occupation_24h(val,maxi,moye,nom) :
+def graph_moyenne_occupation_24h(val,maxi,moye,nom) :
     '''
     Fonction créeant un graph rescencant le nombre de places occupées des parking de montpellier sur 24h. Il y a aussi le seuil de places totales et la moyenne d'ocupation sur la journée.
     '''
@@ -116,17 +116,15 @@ def graph_pourcentage_moyenne_occupation_24h(val,maxi,moye,nom) :
     plt.title('Places occupées par heures sur une journée.')
     plt.savefig(nom)
 
-"""
+
 #1 
-places_occupees_totales(0)
-places_totales()
+print(f'1 : {places_occupees_totales(0)}/{places_totales()} Places occupées')
 
 #2
-calcul.moyenne(pourcentage_parkings())
+print(f'2 : {round(100-calcul.moyenne(pourcentage_parkings()),2)}% De remplissage moyen')
 
 #3
-graph_pourcentage_moyenne_occupation_24h(places_occupees_totales_24h(),places_totales(),calcul.moyenne(places_occupees_totales_24h()),"grph_prctg_myn_cptn.png")
-"""
+graph_moyenne_occupation_24h(places_occupees_totales_24h(),places_totales(),calcul.moyenne(places_occupees_totales_24h()),"grph_prctg_myn_cptn.png")
 
 def places_libres(parking):
     '''
@@ -172,52 +170,8 @@ def places_occupees_24h(parking):
 
 
 #4
-"""
 parkings=['FR_MTP_ANTI','FR_MTP_COME','FR_MTP_CORU','FR_MTP_EURO','FR_MTP_FOCH','FR_MTP_GAMB','FR_MTP_GARE','FR_MTP_TRIA','FR_MTP_ARCT','FR_MTP_CIRC','FR_MTP_SABI','FR_MTP_MOSS','FR_STJ_SJLC','FR_MTP_MEDC','FR_MTP_OCCI','FR_MTP_GA109','FR_MTP_GA250','FR_CAS_CDGA','FR_MTP_POLY'] 
-
+print(f'4 :')
 for parking in parkings :
-    places_occupees(0,parking)
-    places(parking)
-    calcul.moyenne(pourcentage_parking(parking))
-    graph_pourcentage_moyenne_occupation_24h(places_occupees_24h(parking),places(parking),calcul.moyenne(places_occupees_24h(parking)),"grph_cptn"+parking+".png")
-"""
-
-########################## VELO #############################
-
-parkings=["Rue Jules Ferry - Gare Saint-Roch","Comédie","Esplanade","Hôtel de Ville","Corum","Place Albert 1er - St Charles","Foch","Halles Castellane","Observatoire","Rondelet","Plan Cabanes","Boutonnet","Emile Combes","Beaux-Arts","Les Aubes","Antigone centre","Médiathèque Emile Zola","Nombre d'Or","Louis Blanc","Gambetta","Port Marianne","Clemenceau","Les Arceaux","Cité Mion","Nouveau Saint-Roch","Renouvier","Odysseum","Saint-Denis","Richter","Charles Flahault","Voltaire","Prés d'Arènes","Garcia Lorca","Vert Bois","Malbosc","Occitanie","FacdesSciences","Fac de Lettres","Aiguelongue","Jeu de Mail des Abbés","Euromédecine","Marie Caizergues","Sabines","Celleneuve","Jardin de la Lironde","Père Soulas","Place Viala","Hôtel du Département","Tonnelles","Parvis Jules Ferry - Gare Saint-Roch","Pont de Lattes - Gare Saint-Roch","Deux Ponts - Gare Saint-Roch","Providence - Ovalie","Pérols Etang de l'Or","Albert 1er - Cathédrale","Saint-Guilhem - Courreau","Sud De France"]
-
-#1 
-def places_velo_occupees_totales(x):
-    '''
-    Fonction retournant le nombre de places occupées totale a la ligne x des fichiers.
-    ''' 
-    parkings=["Rue Jules Ferry - Gare Saint-Roch","Comédie","Esplanade","Hôtel de Ville","Corum","Place Albert 1er - St Charles","Foch","Halles Castellane","Observatoire","Rondelet","Plan Cabanes","Boutonnet","Emile Combes","Beaux-Arts","Les Aubes","Antigone centre","Médiathèque Emile Zola","Nombre d'Or","Louis Blanc","Gambetta","Port Marianne","Clemenceau","Les Arceaux","Cité Mion","Nouveau Saint-Roch","Renouvier","Odysseum","Saint-Denis","Richter","Charles Flahault","Voltaire","Prés d'Arènes","Garcia Lorca","Vert Bois","Malbosc","Occitanie","FacdesSciences","Fac de Lettres","Aiguelongue","Jeu de Mail des Abbés","Euromédecine","Marie Caizergues","Sabines","Celleneuve","Jardin de la Lironde","Père Soulas","Place Viala","Hôtel du Département","Tonnelles","Parvis Jules Ferry - Gare Saint-Roch","Pont de Lattes - Gare Saint-Roch","Deux Ponts - Gare Saint-Roch","Providence - Ovalie","Pérols Etang de l'Or","Albert 1er - Cathédrale","Saint-Guilhem - Courreau","Sud De France"]
-    total = 0
-    for parking in parkings :
-        f1 = open(parking+'.num_bikes_available.txt','r') 
-        liste = f1.readlines()
-        f1.close()
-        f1 = open(parking+'.num_bikes_available.txt','r') 
-        Free=int(liste[x][:-1])
-        f1 = open(parking+'.num_docks_available.txt','r') 
-        liste = f1.readlines()
-        f1.close()
-        f1 = open(parking+'.num_docks_available.txt','r') 
-        Total=int(liste[x][:-1])
-        total += Total-Free
-    return total
-
-def places_velo_totales():
-    '''
-    Fonction retournant le nombre de places totales.
-    ''' 
-    parkings=["Rue Jules Ferry - Gare Saint-Roch","Comédie","Esplanade","Hôtel de Ville","Corum","Place Albert 1er - St Charles","Foch","Halles Castellane","Observatoire","Rondelet","Plan Cabanes","Boutonnet","Emile Combes","Beaux-Arts","Les Aubes","Antigone centre","Médiathèque Emile Zola","Nombre d'Or","Louis Blanc","Gambetta","Port Marianne","Clemenceau","Les Arceaux","Cité Mion","Nouveau Saint-Roch","Renouvier","Odysseum","Saint-Denis","Richter","Charles Flahault","Voltaire","Prés d'Arènes","Garcia Lorca","Vert Bois","Malbosc","Occitanie","FacdesSciences","Fac de Lettres","Aiguelongue","Jeu de Mail des Abbés","Euromédecine","Marie Caizergues","Sabines","Celleneuve","Jardin de la Lironde","Père Soulas","Place Viala","Hôtel du Département","Tonnelles","Parvis Jules Ferry - Gare Saint-Roch","Pont de Lattes - Gare Saint-Roch","Deux Ponts - Gare Saint-Roch","Providence - Ovalie","Pérols Etang de l'Or","Albert 1er - Cathédrale","Saint-Guilhem - Courreau","Sud De France"]
-    total = 0
-    for parking in parkings :
-        tree = etree.parse(parking+'.txt')
-        for user in tree.xpath('Total') :
-            total += int(user.text)
-    return total
-
-print(places_velo_occupees_totales(0))
-print(places_velo_totales())
+    print(f'{parking} : {places_occupees(0,parking)}/{places(parking)} Places occupées.\n{calcul.moyenne(pourcentage_parking(parking))}% Libre.')
+    graph_moyenne_occupation_24h(places_occupees_24h(parking),places(parking),calcul.moyenne(places_occupees_24h(parking)),"grph_cptn"+parking+".png")

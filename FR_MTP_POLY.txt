@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<park>
+  <DateTime>2023-01-27T09:00:14.586319400</DateTime>
+  <Name>POLY</Name>
+  <Status>Open</Status>
+  <Free>1550</Free>
+  <Total>1911</Total>
+  <DisplayOpenIf>-1</DisplayOpenIf>
+</park>
